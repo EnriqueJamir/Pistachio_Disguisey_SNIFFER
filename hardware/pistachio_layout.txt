@@ -1,15 +1,15 @@
-==========================
-Pistachio Disguisey – Layout ASCII
-==========================
+Montagem Hipotética do Pistachio – Hardware
 
-[M3 – POS] <---- USB Fêmea ----> [M2 – Pistachio MITM]
-                                      |
-                                      | Microcontrolador + Memória
-                                      |
-                                      v
-                                [USB Macho] ----> [M4 – PC]
+Objetivo: Montar um dispositivo MITM USB/NFC que seja stealth, capture pacotes e armazene logs para análise posterior.
 
-Optional NFC Antenna: captura pacotes NFC próximos
-MicroSD/Flash: armazena logs criptografados
-Stealth: nenhum LED, zero interferência
-==========================
+Estrutura Básica
+
+USB Fêmea -> Microcontrolador -> USB Macho
+          \-> Memória (microSD ou Flash)
+          \-> Antena NFC (opcional)
+
+	•	USB Fêmea: Recebe o cabo vindo da POS (M3)
+	•	Microcontrolador: Processa pacotes USB/NFC e gerencia armazenamento
+	•	USB Macho: Conecta ao PC (M4), mantendo transparência
+	•	Memória onboard: Armazena logs criptografados
+	•	Antena NFC: Apenas se você quiser capturar transações NFC
