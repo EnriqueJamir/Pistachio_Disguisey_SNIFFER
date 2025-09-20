@@ -1,0 +1,44 @@
+===========================
+PISTACHIO DISGUISEY – REPOSITÓRIO COMPLETO
+
+pistachio_disguisey/
+│
+├─ README.md                 # [Parte 0] – Documentação geral, visão do projeto, instruções
+│
+├─ firmware/                 # [Parte 1-5] – Código do microcontrolador
+│   ├─ usb_sniffer/          # [Parte 1] – Thread 1: USB Sniffer Core
+│   │   ├─ usb_sniffer.cpp   # Funções de captura, watchdog
+│   │   └─ usb_sniffer.h
+│   │
+│   ├─ buffer_inteligente/   # [Parte 2] – Thread 2: Buffer Inteligente
+│   │   ├─ buffer.cpp        # FIFO, thread-safe, overflow controlado
+│   │   └─ buffer.h
+│   │
+│   ├─ parser_logger/        # [Parte 3] – Thread 3: Parser & Logger
+│   │   ├─ parser.cpp        # Parsing de pacotes, criação de logs, compressão adaptativa
+│   │   └─ parser.h
+│   │
+│   ├─ stealth_health/       # [Parte 4] – Thread 4: Stealth & Health Check
+│   │   ├─ stealth.cpp       # Monitoramento, reset automático, nenhum LED
+│   │   └─ stealth.h
+│   │
+│   ├─ transferencia_offline/ # [Parte 5] – Thread 5: Transferência Offline / M1
+│   │   ├─ transfer.cpp      # Conecta com M1, descriptografa logs, mantém backup local
+│   │   └─ transfer.h
+│   │
+│   └─ main.cpp              # [Integração de todas as partes] – Inicia threads e loop principal
+│
+├─ hardware/                 # [Parte 6] – Blueprint físico + componentes
+│   ├─ pistachio_layout.txt  # Diagrama ASCII mostrando M2, M3, M4 e microcontrolador
+│   ├─ pcb_design.txt        # PCB layout compacto e stealth
+│   └─ componentes.txt       # Lista de componentes e suas funções
+│
+├─ docs/                     # [Parte 7] – Documentação detalhada, fluxos e diagramas
+│   ├─ flow_thread_buffer.txt # Fluxo de dados entre threads e buffers
+│   ├─ crypto_storage.txt    # Detalhes de criptografia e segmentação
+│   └─ stealth_log.txt       # Explicação stealth, health check e watchdog
+│
+└─ scripts/                  # [Parte 8] – Scripts auxiliares M1
+├─ decrypt_logs.py        # Descriptografa logs para análise
+├─ analyze_transactions.py# Reconstrói transações e gera relatório
+└─ backup_logs.sh         # Backup seguro de logs coletados
