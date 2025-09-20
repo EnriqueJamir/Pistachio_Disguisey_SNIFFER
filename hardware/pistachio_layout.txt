@@ -1,0 +1,15 @@
+==========================
+Pistachio Disguisey – Layout ASCII
+==========================
+
+[M3 – POS] <---- USB Fêmea ----> [M2 – Pistachio MITM]
+                                      |
+                                      | Microcontrolador + Memória
+                                      |
+                                      v
+                                [USB Macho] ----> [M4 – PC]
+
+Optional NFC Antenna: captura pacotes NFC próximos
+MicroSD/Flash: armazena logs criptografados
+Stealth: nenhum LED, zero interferência
+==========================
