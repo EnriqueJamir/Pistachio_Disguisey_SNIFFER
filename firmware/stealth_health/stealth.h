@@ -1,16 +1,9 @@
-// Parte 4 – Thread 4: Stealth & Health Check
-#ifndef STEALTH_H
-#define STEALTH_H
+// stealth.h
+#pragma once
 
-#include <cstdint>
-
-// Funções de monitoramento stealth
+void Thread_Stealth_Health();
 void verificar_memoria();
 void verificar_buffers();
 void verificar_consumo_energia();
+bool problema_detectado();
 void reiniciar_modulo_afetado();
-
-// Loop principal stealth
-void loop_stealth();
-
-#endif // STEALTH_H
