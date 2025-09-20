@@ -1,0 +1,13 @@
+==========================
+Pistachio Disguisey – PCB Layout Compacto
+==========================
+
+- Microcontroller central (ESP32/ARM Cortex)
+- USB Fêmea e Macho alinhados para passthrough
+- MicroSD slot ao lado do MCU
+- NFC Antenna opcional posicionada na borda
+- Regulador de tensão integrado
+- PCB tamanho compacto, estilo pendrive alongado
+- Cabos curtos e conexão direta M3 ↔ M2 ↔ M4
+- Nenhum LED visível, operação stealth
+==========================
