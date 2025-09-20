@@ -1,0 +1,16 @@
+==========================
+Pistachio Disguisey – Criptografia & Armazenamento
+==========================
+
+- Cada log recebe chave AES dinâmica por transação
+- Hash SHA256 garante integridade
+- Criptografia dupla opcional: AES + RSA
+- Segmentação: logs por hora/dia
+- Redundância: grava em microSD + memória interna
+- Compressão adaptativa (LZ77/LZMA) para otimização
+- Logging paralelo: não trava MCU
+==========================
+
+💡 Observação:
+- Preparado para análise offline em M1
+- Pipeline modular: captura → buffer → parser → criptografia → armazenamento
