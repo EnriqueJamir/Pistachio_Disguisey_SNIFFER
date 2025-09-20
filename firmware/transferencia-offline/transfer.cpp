@@ -1,39 +1,30 @@
+// transfer.cpp
 #include "transfer.h"
-#include <iostream>
-#include <thread>
-#include <chrono>
 
-// Conecta ao M1 via USB
-void conectar_usb(const std::string& dispositivo) {
-    std::cout << "[TRANSFER] Conectando ao M1 via USB: " << dispositivo << std::endl;
-    // Placeholder: implementação real
-}
-
-// Descriptografa logs
-void descriptografar_logs() {
-    std::cout << "[TRANSFER] Descriptografando logs..." << std::endl;
-    // Placeholder: descriptografia real
-}
-
-// Transfere logs para M1
-void transferir_para_M1() {
-    std::cout << "[TRANSFER] Transferindo logs para M1..." << std::endl;
-    // Placeholder: implementação real
-}
-
-// Mantém backup local
-void manter_backup_local() {
-    std::cout << "[TRANSFER] Mantendo backup local..." << std::endl;
-    // Placeholder: implementação real
-}
-
-// Loop principal para coleta offline
-void loop_transfer_offline() {
+void Thread_Transferencia_Offline() {
     while(true) {
-        conectar_usb("M1");
-        descriptografar_logs();
-        transferir_para_M1();
-        manter_backup_local();
-        std::this_thread::sleep_for(std::chrono::seconds(10)); // Intervalo entre coletas
+        if(conectar_M1()) {
+            descriptografar_logs();
+            transferir_para_M1();
+            manter_backup_local();
+        }
+        sleep(10000); // espera 10s antes de tentar novamente
     }
+}
+
+bool conectar_M1() {
+    // Lógica para conectar com M1 via USB
+    return true;
+}
+
+void descriptografar_logs() {
+    // Lógica para descriptografar logs antes da transferência
+}
+
+void transferir_para_M1() {
+    // Lógica para enviar logs para M1
+}
+
+void manter_backup_local() {
+    // Mantém logs locais redundantes
 }
