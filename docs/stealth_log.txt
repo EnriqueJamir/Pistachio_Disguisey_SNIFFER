@@ -1,26 +1,12 @@
-==========================
-Pistachio Disguisey – Stealth & Health Check
-==========================
+EXPLICAÇÃO STEALTH, HEALTH CHECK E WATCHDOG
 
-[Stealth Total]
-- Nenhum LED visível
-- Nenhum som ou interferência
-- Pipeline transparente M3 ↔ M4
-
-[Health Check]
-- Verifica memória e buffers periodicamente
-- Checa consumo de energia
-- Reinicia módulos afetados se necessário
-
-[Watchdog USB]
-- Reinicia captura USB em caso de falha
-- Mantém logs intactos
-
-[Logging & Timestamps]
-- Timestamp sub-milisegundo para rastreabilidade
-- Logs criptografados e redundantes
-==========================
-
-Observação:
-- Cada loop é thread separada no MCU
-- Stealth garantido mesmo em operação contínua
+- Stealth total: nenhum LED, zero interferência na POS
+- Monitoramento do dispositivo:
+    - Memória disponível
+    - Buffers
+    - Consumo de energia
+- Reinicialização automática de módulos em caso de falha
+- Watchdog USB:
+    - Reinicia stealth se falha detectada
+- Timestamp sub-milisegundo para rastreabilidade de logs
+- Logging paralelo e seletivo
