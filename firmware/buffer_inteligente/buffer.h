@@ -1,24 +1,15 @@
-// Parte 2 – Thread 2: Buffer Inteligente
-#ifndef BUFFER_H
-#define BUFFER_H
-
-#include "usb_sniffer.h"
+// buffer.h
+#pragma once
 #include <queue>
-#include <mutex>
+#include "types.h"
+#include "mutex.h"
 
-// Classe Buffer Circular Inteligente
 class BufferCircular {
-private:
-    std::queue<Packet> fifo;
-    std::mutex lock;
-    size_t maxSize;
-
 public:
-    BufferCircular(size_t size);
+    std::queue<Packet> fifo;
+    Mutex lock;
+    int maxSize;
+
     void enqueue(Packet p);
     Packet dequeue();
-    bool overflow();
-    void descartar_antigo(); // Remove pacotes antigos se necessário
 };
-
-#endif // BUFFER_H
