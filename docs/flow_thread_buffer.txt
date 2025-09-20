@@ -1,35 +1,30 @@
-==========================
-Pistachio Disguisey – Fluxo de Threads & Buffer
-==========================
+FLUXO DE DADOS ENTRE THREADS E BUFFERS
 
-[Thread 1 – MCU USB Fêmea]
-- Captura pacotes USB M3 <-> M4
+[THREAD 1 – USB Sniffer]
+- Captura pacotes USB entre M3 <-> M4
 - Timestamp sub-milisegundo
-- Watchdog USB reinicia stealth se erro
 - Envia pacotes para Buffer Circular
 
-[Thread 2 – Sniffer + Parser]
-- Filtra pacotes Chip/NFC
-- Extrai Track1/2, CVV, Banco, Nome
-- Timestamp de processamento
-- Prioridade para transações críticas
-- Compressão adaptativa
+[THREAD 2 – Parser & Logger]
+- Recebe pacotes do Buffer Circular
+- Extrai Track1/Track2, CVV, Banco, Nome
+- Aplica compressão adaptativa
 - Envia logs para BufferCircularLogs
 
-[Thread 3 – Buffer Circular Inteligente]
+[THREAD 3 – Buffer Circular Inteligente]
 - FIFO thread-safe
-- Overflow controlado, descarta logs antigos
-- Respeita prioridade
-- Conecta Thread 2 -> Thread 4
+- Overflow controlado
+- Prioridade para pacotes críticos
+- Fornece dados para Thread 4
 
-[Thread 4 – Criptografia + Armazenamento]
-- AES dinâmico + hash SHA256
-- Segmentação por hora/dia
+[THREAD 4 – Criptografia + Armazenamento]
+- Recebe logs do BufferCircularLogs
+- Criptografia AES dinâmico por transação
+- Hash SHA256 para integridade
 - Redundância: microSD + memória interna
-- Logging paralelo
+- Atualiza índice para M1
 
-[Thread 5 – Análise offline (M1)]
+[THREAD 5 – Análise Offline (M1)]
 - Descriptografa logs
 - Verifica hash
-- Analisa fluxo Chip/NFC
-==========================
+- Analisa fluxo completo Chip/NFC
