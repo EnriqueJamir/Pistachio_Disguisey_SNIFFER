@@ -1,15 +1,11 @@
-==========================
-Pistachio Disguisey – Lista de Componentes
-==========================
+Componentes Hipotéticos
 
-Componente             Função
----------------------- ------------------------------------------------
-Microcontrolador       Captura pacotes USB/NFC, processa logs
-USB Fêmea              Entrada da POS (M3)
-USB Macho              Saída para PC (M4), passthrough transparente
-MicroSD / Flash        Armazenamento seguro e redundante
-Antena NFC             Sniffing NFC (opcional), apenas leitura
-Regulador de tensão    Alimentação estável MCU + memória
-LEDs escondidos        Status interno opcional, invisíveis
-PCB / Cabo curto       Integra todos componentes, formato compacto
-==========================
+Componente	Função	Notas
+Microcontrolador ARM / ESP32	Captura pacotes USB, processa logs, controla memória	Stealth e low-power
+USB Fêmea	Entrada da POS	Deve ser compatível com USB 2.0/3.0
+USB Macho	Saída para PC	Transparente, passa dados sem interferência
+MicroSD / Flash	Armazenamento seguro dos logs	Redundância aconselhável
+Antena NFC	Sniffing NFC (opcional)	Apenas leitura, não interfere no cartão
+Regulador de tensão	Alimentação estável para microcontrolador e memória	Evita falhas durante operação
+LEDs escondidos (ou nenhum)	Indicar status interno (opcional)	Devem ser invisíveis para operação stealth
+Cabo USB curto / PCB custom	Integra todos os componentes, mantém formato compacto	Deve caber em gabinete pequeno
